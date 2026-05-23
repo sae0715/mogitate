@@ -1,12 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CsvDownloadController;
-use App\Models\Contact;
-use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,22 +14,25 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [ContactController::class, 'index'])->name("rewrite");
+Route::get('/products', [ProductController::class, 'index']);
 
-Route::post('/confirm', [ContactController::class, 'confirm']);
 
-Route::post('/thanks', [ContactController::class, 'store']);
 
-Route::get('/register', [AuthController::class, 'registerView']);
 
-Route::get('/login', [AuthController::class, 'loginView']);
+// Route::post('/confirm', [ContactController::class, 'confirm']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/admin', [ContactController::class, 'admin']);
-});
+// Route::post('/thanks', [ContactController::class, 'store']);
 
-Route::get('/admin/search', [ContactController::class, 'search']);
+// Route::get('/register', [AuthController::class, 'registerView']);
 
-Route::post('/admin/delete', [ContactController::class, 'delete']);
+// Route::get('/login', [AuthController::class, 'loginView']);
 
-Route::get('/admin/csv-download', [CsvDownloadController::class, 'downloadCsv']);
+// Route::middleware('auth')->group(function () {
+//     Route::get('/admin', [ContactController::class, 'admin']);
+// });
+
+// Route::get('/admin/search', [ContactController::class, 'search']);
+
+// Route::post('/admin/delete', [ContactController::class, 'delete']);
+
+// Route::get('/admin/csv-download', [CsvDownloadController::class, 'downloadCsv']);

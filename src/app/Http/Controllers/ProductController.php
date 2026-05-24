@@ -7,10 +7,19 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $keyword = $request->name;
 
-        return view('index', compact('products'));
+        if ($keyword) {
+            $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
+        } else {
+            $products = Product::all();
+        }
+
+        return view(
+            'index',
+            compact('products')
+        );
     }
 }

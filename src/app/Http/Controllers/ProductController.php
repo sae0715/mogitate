@@ -10,12 +10,21 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->name;
+        $sort = $request->input('sort', 'default');
+
+        $query = Product::query();
 
         if ($keyword) {
-            $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
-        } else {
-            $products = Product::all();
+            $query = $query->where('name', 'like', '%' . $keyword . '%');
         }
+
+        if ($sort === 'price_desc') {
+            $query = $query->orderBy('price', 'desc');
+        } elseif ($sort === 'price_asc') {
+            $query = $query->orderBy('price', 'asc');
+        }
+
+        $products = $query->get();
 
         return view(
             'index',

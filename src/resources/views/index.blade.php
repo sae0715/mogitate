@@ -5,14 +5,20 @@
 @endsection
 
 @section('content')
+<a href="/products/register">
+    +商品を追加
+</a>
 
 <ul>
     @foreach($products as $product)
-    <li>{{$product->name}}
-        {{$product->price}}
-        <img src="{{asset($product->image)}}" alt="{{$product->name}}">
-    </li>
+    <a href="/products/detail/{{$product->id}}">
+        <li>{{$product->name}}
+            {{$product->price}}
+            <img src="{{asset($product->image)}}" alt="{{$product->name}}">
+        </li>
+    </a>
     @endforeach
+    {{ $products->links() }}
 </ul>
 
 <form action="/products" method="GET">
@@ -25,9 +31,5 @@
         <option value="price_asc">低い順に表示</option>
     </select>
 </form>
-
-
-
-
 
 @endsection

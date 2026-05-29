@@ -16,23 +16,11 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/products', [ProductController::class, 'index']);
 
+Route::get('/products/detail/{productId}', [ProductController::class, 'show']);
 
+Route::put('/products/detail/{productId}', [ProductController::class, 'update']);
 
+Route::get('/products/register', [ProductController::class, 'create']);
+Route::post('/products/register', [ProductController::class, 'store']);
 
-// Route::post('/confirm', [ContactController::class, 'confirm']);
-
-// Route::post('/thanks', [ContactController::class, 'store']);
-
-// Route::get('/register', [AuthController::class, 'registerView']);
-
-// Route::get('/login', [AuthController::class, 'loginView']);
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/admin', [ContactController::class, 'admin']);
-// });
-
-// Route::get('/admin/search', [ContactController::class, 'search']);
-
-// Route::post('/admin/delete', [ContactController::class, 'delete']);
-
-// Route::get('/admin/csv-download', [CsvDownloadController::class, 'downloadCsv']);
+Route::delete('/products/{productId}/delete', [ProductController::class, 'destroy']);

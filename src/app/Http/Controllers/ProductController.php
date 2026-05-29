@@ -30,7 +30,7 @@ class ProductController extends Controller
 
         return view(
             'index',
-            compact('products')
+            compact('products', 'sort')
         );
     }
 
@@ -51,11 +51,12 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         if ($request->hasFile('image')) {
-            $image = $request->file('image')->store('public/images');
-            $product->image = basename($image);
+            $image = $request->file('image')->store('public/fruits-img');
+            $product->image = 'storage/fruits-img/' . basename($image);
         }
         $product->description = $request->description;
         $product->save();
+        $product->seasons()->sync($request->seasons);
 
         return redirect(
             '/products'
@@ -71,12 +72,13 @@ class ProductController extends Controller
     {
         $image = $request->file('image')->store('public/fruits-img');
 
-        Product::create([
+        $product = Product::create([
             'name' => $request->name,
             'price' => $request->price,
             'image' => 'storage/fruits-img/' . basename($image),
             'description' => $request->description,
         ]);
+        $product->seasons()->sync($request->seasons);
 
         return redirect('/products');
     }

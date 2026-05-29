@@ -1,0 +1,86 @@
+.container {
+    padding: 20px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-btn{
+    padding: 7px 13px;
+    border-radius: 3px;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+}
+
+.main {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 200px;
+}
+
+.sidebar input{
+    padding: 11px 5px;
+    border-radius: 20px;
+    border-color: darkgray;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+.sidebar button{
+    background-color: orange;
+    padding: 11px 5px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.sidebar p {
+    font-weight: bold;
+}
+
+.sidebar select {
+    padding: 11px 5px;
+    border-radius: 3px;
+    border-color: darkgray;
+    width: 100%;
+    box-sizing: border-box;
+    color: darkgray;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 1;
+}
+
+.product-card {
+    text-decoration: none;
+    color: black;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.product-card p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 0 10px;
+}
+

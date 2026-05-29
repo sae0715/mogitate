@@ -1,0 +1,85 @@
+.container {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.top-area {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.image-area img {
+    width: 350px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.form-area {
+    flex: 1;
+    max-width: 350px;
+}
+
+.form-area p {
+    color: #646464;
+}
+
+.form-area input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bebdbd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    color: #646464;
+}
+
+.seasons {
+    display: flex;
+    gap: 20px;
+}
+
+.description-area textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    max-width: 750px;
+}
+
+.btn-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.back-btn {
+    padding: 12px 40px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn {
+    padding: 12px 40px;
+    border: none;
+    background-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    position: absolute;
+    right: 150px;
+    background: none;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+}
